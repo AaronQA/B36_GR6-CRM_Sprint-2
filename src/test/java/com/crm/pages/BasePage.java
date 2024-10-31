@@ -55,5 +55,8 @@ public abstract class BasePage {
     @FindBy(xpath = "//div[@id='user-block']")
     public WebElement userIcon;
 
+    @FindBy(xpath = "//span[normalize-space()='Log out']")
+    public WebElement logoutButton;
+
 
 }
