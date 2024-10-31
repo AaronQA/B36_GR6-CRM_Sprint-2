@@ -22,7 +22,7 @@ public class LoginPage extends BasePage {
     public WebElement loginButton;
 
     @FindBy(xpath = "//div[@class='errortext']")
-    public WebElement invalidLoginOrPassword;
+    public WebElement errorMessage;
 
     @FindBy(xpath = "//input[@name='USER_REMEMBER']")
     public WebElement rememberMeBox;
