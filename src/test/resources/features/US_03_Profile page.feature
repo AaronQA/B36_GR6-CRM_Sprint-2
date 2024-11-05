@@ -62,7 +62,6 @@ Feature: "my profile page" access functionality
       | marketing |
    #AC2
   #Positive_Scenarios
-  @wipe
   Scenario Outline:  Verify email under General tab matches user's account email
     Given user logs in as "<userType>"
     When user Click on the email on the right top on the home page
