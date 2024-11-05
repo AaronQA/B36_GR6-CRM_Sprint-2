@@ -62,6 +62,7 @@ Feature: "my profile page" access functionality
       | marketing |
    #AC2
   #Positive_Scenarios
+  @wipe
   Scenario Outline:  Verify email under General tab matches user's account email
     Given user logs in as "<userType>"
     When user Click on the email on the right top on the home page
@@ -73,8 +74,8 @@ Feature: "my profile page" access functionality
       | Tasks         |
       | Calendar      |
       | Conversations |
-    Then user should see "<email>" as email under General tab
-    And then user should see "<email>" as email under Contact information
+    Then user should see "<userType>" as email under General tab
+    And then user should see "<userType>" as email under Contact information
     And then user should verify that the both emails are the same
 
     Examples:
