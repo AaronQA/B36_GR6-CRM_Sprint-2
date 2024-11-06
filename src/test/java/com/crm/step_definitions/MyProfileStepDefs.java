@@ -23,11 +23,13 @@ public class MyProfileStepDefs {
     @When("user Click on the email on the right top on the home page")
     public void user_click_on_the_email_on_the_right_top_on_the_home_page () {
         profilePage.userIcon.click();
-        Driver.getDriver().manage().window().setSize(new Dimension(3 , 3));
+        Driver.getDriver().manage().window().setSize(new Dimension(1024 , 768));
     }
 
     @And("user should be able to resize the browser window")
     public void userShouldBeAbleToResizeTheBrowserWindow () {
+        Driver.getDriver().manage().window().setSize(new Dimension(1024 , 768));
+        Assert.assertTrue(profilePage.myProfile.getSize() == new Dimension(1024 , 768));
 
     }
 
