@@ -50,9 +50,11 @@ Feature: "my profile page" access functionality
     And  user Click on the "My Profile" option
     Then the user should not see all the expected options
     And the user should only see the following options:
-      | General |
-      | Drive   |
-      | Tasks   |
+      | General       |
+      | Drive         |
+      | Tasks         |
+      | Calendar      |
+      | Conversations |
     And the user should see an error message "Some profile options are unavailable. Please try again later."
 
     Examples:
@@ -62,6 +64,7 @@ Feature: "my profile page" access functionality
       | marketing |
    #AC2
   #Positive_Scenarios
+
   Scenario Outline:  Verify email under General tab matches user's account email
     Given user logs in as "<userType>"
     When user Click on the email on the right top on the home page
@@ -73,8 +76,8 @@ Feature: "my profile page" access functionality
       | Tasks         |
       | Calendar      |
       | Conversations |
-    Then user should see "<email>" as email under General tab
-    And then user should see "<email>" as email under Contact information
+    Then user should see "<userType>" as email under General tab
+    And then user should see "<userType>" as email under Contact information
     And then user should verify that the both emails are the same
 
     Examples:

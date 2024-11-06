@@ -2,6 +2,7 @@ package com.crm.step_definitions;
 
 import com.crm.pages.MyProfilePage;
 import com.crm.utilities.BrowserUtils;
+import com.crm.utilities.ConfigurationReader;
 import com.crm.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -11,6 +12,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 
+import java.lang.module.Configuration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,11 +23,13 @@ public class MyProfileStepDefs {
     @When("user Click on the email on the right top on the home page")
     public void user_click_on_the_email_on_the_right_top_on_the_home_page () {
         profilePage.userIcon.click();
-        Driver.getDriver().manage().window().setSize(new Dimension(3 , 3));
+        Driver.getDriver().manage().window().setSize(new Dimension(1024 , 768));
     }
 
     @And("user should be able to resize the browser window")
     public void userShouldBeAbleToResizeTheBrowserWindow () {
+        Driver.getDriver().manage().window().setSize(new Dimension(1024 , 768));
+        Assert.assertTrue(profilePage.myProfile.getSize() == new Dimension(1024 , 768));
 
     }
 
@@ -51,14 +55,17 @@ public class MyProfileStepDefs {
 
 
     @Then("user should see {string} as email under General tab")
-    public void user_should_see_as_email_under_general_tab (String string) {
+    public void user_should_see_as_email_under_general_tab (String userType) {
         System.out.println("emailUnderGeneral is Displayed : " + profilePage.emailUnderGeneral.isDisplayed());
+        Assert.assertEquals(profilePage.emailUnderGeneral.getText() , ConfigurationReader.getProperty(userType + "_username"));
+
 
     }
 
     @Then("then user should see {string} as email under Contact information")
-    public void then_user_should_see_as_email_under_contact_information (String string) {
+    public void then_user_should_see_as_email_under_contact_information (String userType) {
         System.out.println("emailUnderContactInformation is Displayed : " + profilePage.emailUnderContactInformation.isDisplayed());
+        Assert.assertEquals(profilePage.emailUnderContactInformation.getText() , ConfigurationReader.getProperty(userType + "_username"));
         BrowserUtils.sleep(2);
     }
 
