@@ -31,7 +31,7 @@ public WebElement saveButton;
 @FindBy(xpath = "//button[@id='blog-submit-button-save']")
 public WebElement sendButton;
 
-@FindBy(xpath="//div[contains(@id,'blog_post_body')]")
+@FindBy(xpath="//div[.='Google']")
     public WebElement urlLink;
 
 

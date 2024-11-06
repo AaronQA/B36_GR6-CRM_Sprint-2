@@ -8,7 +8,9 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 
 import io.cucumber.java.en.When;
+import io.cucumber.java.zh_cn.假如;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
@@ -18,7 +20,7 @@ Driver driver;
 
 addLinkPage addLinkPage = new addLinkPage();
     @When("the user is on the message tab")
-    public void the_user_is_on_the_message_tab() {
+    public void the_user_is_on_the_message_tab(){
         addLinkPage.messageTab.click();
         BrowserUtils.sleep(2);
     }
@@ -51,22 +53,23 @@ addLinkPage addLinkPage = new addLinkPage();
 
     @When("the user is on home page")
     public void the_user_is_on_home_page() {
-       BrowserUtils.sleep(2);
+
     }
     @When("the user clicks on the textLink")
     public void the_user_clicks_on_the_text_link() {
+        BrowserUtils.sleep(2);
         addLinkPage.urlLink.click();
+
     }
     @Then("the user navigates to the correct url")
     public void the_user_navigates_to_the_correct_url() {
         Assert.assertTrue(addLinkPage.urlLink.isEnabled());
         BrowserUtils.sleep(2);
     }
-
-
     @Then("the user should see the link opens in a new tab")
-    public void theUserShouldSeeTheLinkOpensInANewTab() {
+    public void theUserShouldSeeTheLinkOpensInANewTab(){
 
+        // not sure how to do this step with ready utility methods
 
 
 
